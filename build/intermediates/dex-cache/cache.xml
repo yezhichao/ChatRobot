@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="E:\Demos\ContactHelper-master_\yzc_robot_012\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-d7cb82bac9294f9add088d810bfd12f39b679476.jar" />
+    </item>
+    <item
+        jar="E:\Demos\ContactHelper-master_\yzc_robot_012\app\libs\Msc.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="612ce0b45e5d70383d8548bcfe6c8c5b1271617d">
+        <dex dex="E:\Demos\ContactHelper-master_\yzc_robot_012\app\build\intermediates\pre-dexed\debug\Msc-7f9bca1c0cec18af67db88a8fd135cab5c8a2a18.jar" />
+    </item>
+    <item
+        jar="E:\Android\Android Studio\gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="E:\Demos\ContactHelper-master_\yzc_robot_012\app\build\intermediates\pre-dexed\debug\gson-2.2.4-6c2a209726c1736b1f655a0dc0fcf28018dd2ef1.jar" />
+    </item>
+
+</items>
