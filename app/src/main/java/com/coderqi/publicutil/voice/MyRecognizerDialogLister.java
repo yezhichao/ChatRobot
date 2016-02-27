@@ -27,7 +27,7 @@ public class MyRecognizerDialogLister implements RecognizerDialogListener{
 		// TODO Auto-generated method stub
 		String text = JsonParser.parseIatResult(results.getResultString());
 		resultStr += text;
-		if (isLast) {
+		  if (isLast) {
 			System.out.println(resultStr);
 			Toast.makeText(context, resultStr, Toast.LENGTH_LONG).show();
 			Intent intent = new Intent("yzc.robot.VOICE_MESSAGE").putExtra("VoiceMsg", resultStr);

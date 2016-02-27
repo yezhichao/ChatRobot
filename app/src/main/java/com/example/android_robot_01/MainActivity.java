@@ -60,6 +60,11 @@ public class MainActivity extends Activity
 		};
 	};
 
+	/**
+	 * 命令观察者，用于检测发送的信息是否有打开应用的意图
+	 */
+	private CommandObserver mCommandObserver;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -76,6 +81,8 @@ public class MainActivity extends Activity
 		intentFilter.addAction("yzc.robot.VOICE_MESSAGE");
 		voiceReceiver = new VoiceReceiver();
 		registerReceiver(voiceReceiver,intentFilter);
+
+		mCommandObserver = new CommandObserver();
 
 	}
 
@@ -153,23 +160,23 @@ public class MainActivity extends Activity
 
 		mMsg.setText("");
 
-		new Thread()
-		{
-			public void run()
-			{
-				ChatMessage from = null;
-				try
-				{
-					from = HttpUtils.sendMsg(msg);
-				} catch (Exception e)
-				{
-					from = new ChatMessage(Type.INPUT, "服务器挂了呢...");
+		if (!mCommandObserver.onCommand(MainActivity.this,msg)) {
+			new Thread() {
+				public void run() {
+					ChatMessage from = null;
+					try {
+						from = HttpUtils.sendMsg(msg);
+					} catch (Exception e) {
+						from = new ChatMessage(Type.INPUT, "服务器挂了呢...");
+					}
+					Message message = Message.obtain();
+					message.obj = from;
+					mHandler.sendMessage(message);
 				}
-				Message message = Message.obtain();
-				message.obj = from;
-				mHandler.sendMessage(message);
-			};
-		}.start();
+
+				;
+			}.start();
+		}
 
 	}
 	
@@ -189,8 +196,8 @@ public class MainActivity extends Activity
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			String text = intent.getStringExtra("VoiceMsg");
-			MainActivity.mMsg.setText(MainActivity.mMsg.getText().toString() + text);
-			sendVoiceMessage(mMsg);
+				MainActivity.mMsg.setText(MainActivity.mMsg.getText().toString() + text);
+				sendVoiceMessage(mMsg);
 		}
 	}
 
